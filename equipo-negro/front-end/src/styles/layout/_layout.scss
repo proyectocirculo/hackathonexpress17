@@ -1,0 +1,223 @@
+.full-container {
+  @include fullContainer();
+}
+
+.background-image{
+  background-size: cover;
+  background-position: center;
+  &--contain{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+/* Containers */
+.page-section{
+  padding: 5em 7em;
+  @media screen and (max-width: 800px) {
+    padding: 5em 3em;
+  }
+  @media screen and (max-width: 500px) {
+    padding: 5em 1.5em;
+  }
+}
+
+.section-header{
+  margin-bottom: 3em;
+}
+
+.section-title{
+  font-family: poppinsLight;
+  font-size: 3em;
+  @media screen and (max-width: 600px) {
+    font-size: 2em;
+  }
+}
+
+.section-group{
+  margin-bottom: 2em;  
+  &__header{
+    margin-bottom: 1em;
+  }
+}
+
+.group-header{
+  margin-bottom: 1.5em;
+}
+
+/* Helper classes */
+.text-with-icon{
+  display: flex;
+  align-items: center;
+  img{
+    margin-right: 1em;
+    max-height: 1.5em;    
+  }
+}
+
+.social-links{
+  display: flex;
+  margin: 0 -.5em;
+  li{
+    margin: 0 .5em;
+  }
+  img{
+    max-height: 2.5em;
+    &:hover{
+      animation: pulse .3s linear;
+    }
+  }
+}
+
+.filter{
+  @include fullContainer();
+  &-red {
+    background-color: rgba($red, 0.5);
+  }
+  &-green {
+    background-color: rgba($green, 0.5);
+  }
+}
+
+@each $colorName, $color in $colors {
+  .filter--#{$colorName} {
+    background-color: rgba($color, 0.3);
+  }  
+  .filter-gradient--#{$colorName} {
+    background: $color;
+    /* For browsers that do not support gradients */
+
+    background: -webkit-linear-gradient(left, rgba($color, 0.8) 60%, transparent);
+    /* For Safari 5.1 to 6.0 */
+
+    background: -o-linear-gradient(right, rgba($color, 0.8) 60%, transparent);
+    /* For Opera 11.1 to 12.0 */
+
+    background: -moz-linear-gradient(right, rgba($color, 0.8) 60%, transparent);
+    /* For Firefox 3.6 to 15 */
+
+    background: linear-gradient(to right, rgba($color, 0.8) 60%, transparent);
+    /* Standard syntax */
+  }
+
+  .text-shadow-#{$colorName} {
+    text-shadow: 1px 1px 1px darken($color, 20%);
+  }
+}
+
+.page-header{
+  position: relative;
+  text-align: center;
+  padding: 2em 15%;
+  border-bottom: 1px solid #cccccc;
+  .btn{
+    @include absoluteCenter('vertical');
+    right: 1em;
+  }
+}
+
+
+// Home
+.home-welcome{
+  @include fullContainer();
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .main-logo{
+    width: 15em;
+    margin: 0 auto 1em;
+  }
+  .filter{
+    @include fullContainer();
+    background-color: rgba(black, 0.4); 
+  }
+  .content{
+    position: relative;
+    color: white;
+    text-align: center;
+    .btn{
+      padding: .5em 4em;
+    }
+  }
+  .text-with-icon{
+    align-items: center;
+    img{
+      max-height: 5em;
+    }
+  }
+}
+
+#home-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.opcion {
+  .page-content{
+    position: relative;
+    min-height: 100vh;
+  }
+
+  .dialog{
+    background-color: rgba(black, 0.7);
+    padding: 2em;
+    color: white;
+    text-align: center;
+    .section-header{
+    }
+    &__container{
+      @include absoluteCenter();
+    }
+    &__content{
+      margin-bottom: 2em;
+    }
+    &__options{
+      display: flex;
+      justify-content: center;
+      li{
+        margin: 0 .5em;
+      }
+    }
+    .btn{
+      padding: .5em 3em;
+      margin-top: 1em;
+    }
+  }
+}
+
+.resultados{
+  padding: 3em 5em;
+  position: relative;
+  &__content{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__header{
+    margin-bottom: 2em;
+  }
+  &-list__item{
+    margin-bottom: 1.5em;
+  }
+  &__chart{
+    text-align: right;
+  }
+}
+
+.introduccion{
+  @include absoluteCenter();
+  @include materialShadow(2);
+  background-color: rgba($green, 1);
+  padding: 1em;
+  z-index: 10;
+}
+
+.inicio .page-content{
+  position: relative;
+}

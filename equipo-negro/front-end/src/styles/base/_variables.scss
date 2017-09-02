@@ -1,0 +1,36 @@
+/* Colors */
+$magenta: #e4006e;
+$yellow: #ffb64c;
+$green: #b7b325;
+$red: #c1272D;
+
+
+$colors: (
+  magenta: $magenta,
+  yellow: $yellow,
+  green: $green,
+  red: $red,
+  black: black,
+  gray3: #333333,
+);
+
+@each $colorName, $color in $colors {
+  .bg-#{$colorName} {
+    background-color: $color;
+  };
+  .filter-#{$colorName} {
+    background-color: $color;
+    opacity: 0.8;
+  };
+
+  .#{$colorName} {
+    color: $color;
+  };
+}
+
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700,900');
+
+$roboto: 'Roboto', sans-serif;
+$merriweatherSerif: 'Merriweather', serif;
